@@ -6,8 +6,8 @@ import atomicHabits from '../images/atomic_habits.jpg';
 import richDadPoorDad from '../images/rich_dad_poor_dad.jpg';
 import alchemist from '../images/alchemist.jpg';
 import eatThatFrog from '../images/eat_that_frog.jpg';
-import vijayanikiAidhuMetlu from '../images/vijayaniki_aidu_metlu.jpg';
-import venneloAdapilla from '../images/vennelo_adapilla.jpeg';
+import TheOldManAndTheSea from '../images/TheOldManAndTheSea.jpg';
+import ThingsFallApart from '../images/ThingsFallApart.jpg'; 
 
 const books = [
   {
@@ -35,16 +35,16 @@ const books = [
     description: "A motivational book on overcoming procrastination.",
   },
   {
-    title: "Vijayaniki Aidhu Metlu",
-    author: "Yandamoori Veerendranath",
-    imgSrc: vijayanikiAidhuMetlu,
-    description: "An inspirational Telugu book for personal growth.",
+    title: "The Old Man And The Sea",
+    author: "Ernest HemingWay",
+    imgSrc: TheOldManAndTheSea,
+    description: "An inspirational book explores human resilience against nature.",
   },
   {
-    title: "Vennelo Adapilla",
-    author: "Yandamoori Veerendranath",
-    imgSrc: venneloAdapilla,
-    description: "A classic Telugu romantic novel that touches the heart.",
+    title: "Things Fall Apart",
+    author: "Chinua Achebe",
+    imgSrc: ThingsFallApart,
+    description: "Power, pride, and tradition face destruction.",
   },
 ];
 

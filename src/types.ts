@@ -34,6 +34,8 @@ export interface Project {
 }
 
 export interface Certification {
+  description: any;
+  type: any;
   title: string;
   issuer: string;
   issuedDate: string;

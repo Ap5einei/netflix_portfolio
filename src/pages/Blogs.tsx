@@ -1,29 +1,24 @@
 import React from 'react';
 import './Blogs.css';
-import { FaMedium, FaDev } from 'react-icons/fa';
+import { FaMedium, FaDev, FaXRay, FaYoutube, FaResearchgate } from 'react-icons/fa';
 
 const blogs = [
   {
-    title: "Make Your Rails Console Look Better",
-    platform: "Medium",
-    icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/make-your-rails-console-look-better-510988d40566",
-    description: "Learn tips to customize your Rails console for a better experience.",
+    title: "Lahdenväylä",
+    platform: "Helsinki XR Center",
+    icon: <FaResearchgate/>,
+    link: "https://helsinkixrcenter.com/",
+    description: "Learn to make sustainable innovative experience with AI in XR.",
   },
   {
-    title: "Docker Fundas - My Version",
-    platform: "Medium",
-    icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/docker-fundas-my-version-7b9262bd90d4",
-    description: "An introductory guide to Docker fundamentals from my perspective.",
+    title: "Gamedev  Videos",
+    platform: "Youtube",
+    icon: <FaYoutube/>,
+    link: "https://www.youtube.com/@benjaminmasena183",
+    description: "Gameplay videos games i have developed.",
   },
-  {
-    title: "Grape Gem in Ruby on Rails: Handling User Model and API Endpoint",
-    platform: "Dev.to",
-    icon: <FaDev />,
-    link: "https://dev.to/samalasumanth0262/grape-gem-in-ruby-on-rails-handling-user-model-and-api-endpoint-g6d",
-    description: "A guide to using the Grape gem for API development in Ruby on Rails.",
-  },
+  
+ 
 ];
 
 const Blogs: React.FC = () => {

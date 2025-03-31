@@ -1,74 +1,113 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { MdOutlineWork as WorkIcon } from 'react-icons/md';
 import { IoSchool as SchoolIcon } from 'react-icons/io5';
 import { FaStar as StarIcon } from 'react-icons/fa';
 import './WorkExperience.css';
-import { TimelineItem } from '../types';
-import { getTimeline } from '../queries/getTimeline';
 
+const workExperience = [
+  {
+    title: "XR Developer",
+    company: "Helsinki XR Center",
+    date: "2025",
+    type: "work",
+    description: "XR development and research",
+  },
+  {
+    title: "Puhelin Myyjä",
+    company: "Pasastar OY",
+    date: "2022",
+    type: "work",
+    description: "Phone sales and customer service",
+  },
+  {
+    title: "Moving Assistant",
+    company: "Opiskelija Muutot",
+    date: "2021",
+    type: "work",
+    description: "Moving services",
+  },
+  {
+    title: "Office Intern",
+    company: "Helsinki Rescue Department",
+    date: "2020",
+    type: "work",
+    description: "Administrative support and office duties",
+  },
+  {
+    title: "Youth Worker",
+    company: "City of Helsinki Youth Affairs Center - Kettutie Youth Center",
+    date: "2015",
+    type: "work",
+    description: "Youth activities coordination",
+  },
+  {
+    title: "Work Practice (TET)",
+    company: "Alepa Erätori",
+    date: "2014-2017",
+    type: "work",
+    description: "Retail experience and customer service",
+  },
+  {
+    title: "Game Programming",
+    company: "Metropolia University of Applied Sciences",
+    date: "2024",
+    type: "education",
+    description: "Game development and programming studies",
+  },
+  {
+    title: "Game Programming",
+    company: "South-Eastern Finland University of Applied Sciences",
+    date: "2022",
+    type: "education",
+    description: "Game development fundamentals",
+  },
+  {
+    title: "High School Diploma",
+    company: "Eira Adult High School",
+    date: "2019",
+    type: "education",
+    description: "General education",
+  }
+];
 
 const WorkExperience: React.FC = () => {
-
-  const [timeLineData, setTimeLineData] = useState<TimelineItem[] | null>(null);
-
-  useEffect(() => {
-    async function fetchTimelineItem() {
-      const data = await getTimeline();
-      setTimeLineData(data);
-    }
-    fetchTimelineItem();
-  }, []);
-
-
-  if (!timeLineData) return <div>Loading...</div>;
-  console.log("🚀 ~ timeLineData:", timeLineData)
-
   return (
-    <>
-      <div className="timeline-container">
-        <h2 className="timeline-title">📅 Work Experience & Education Timeline</h2>
-      </div>
+    <div className="timeline-container">
+      <h2 className="timeline-title">📅 Work Experience & Education</h2>
       <VerticalTimeline>
-        {timeLineData.map((item, index) => (
+        {workExperience.map((item, index) => (
           <VerticalTimelineElement
             key={index}
-            className={`vertical-timeline-element--${item.timelineType}`}
-            contentStyle={
-              item.timelineType === "work"
-                ? index === 0
-                  ? { background: 'rgb(33, 150, 243)', color: '#fff' }
-                  : { background: 'rgb(240, 240, 240)', color: '#fff' }
-                : { background: 'rgb(255, 224, 230)', color: '#fff' } // Lighter red for education
-            }
-            contentArrowStyle={
-              item.timelineType === "work"
-                ? { borderRight: index === 0 ? '7px solid rgb(33, 150, 243)' : '7px solid rgb(240, 240, 240)' }
-                : { borderRight: '7px solid rgb(255, 224, 230)' }
-            }
-            date={item.dateRange}
-            iconStyle={
-              item.timelineType === "work"
-                ? { background: 'rgb(33, 150, 243)', color: '#fff' }
-                : { background: 'rgb(255, 160, 200)', color: '#fff' } // Softer red for education icon
-            }
-            icon={item.timelineType === "work" ? <WorkIcon /> : <SchoolIcon />}
+            className={`vertical-timeline-element--${item.type}`}
+            contentStyle={{
+              background: item.type === "work" 
+                ? index === 0 
+                  ? 'rgb(33, 150, 243)' 
+                  : 'rgb(240, 240, 240)'
+                : 'rgb(255, 224, 230)',
+              color: '#000'
+            }}
+            contentArrowStyle={{
+              borderRight: item.type === "work"
+                ? index === 0 
+                  ? '7px solid rgb(33, 150, 243)'
+                  : '7px solid rgb(240, 240, 240)'
+                : '7px solid rgb(255, 224, 230)'
+            }}
+            date={item.date}
+            iconStyle={{
+              background: item.type === "work"
+                ? 'rgb(33, 150, 243)'
+                : 'rgb(255, 160, 200)',
+              color: '#fff'
+            }}
+            icon={item.type === "work" ? <WorkIcon /> : <SchoolIcon />}
           >
-            {item.timelineType === "work" ? (
-              <div style={{ color: 'black' }}>
-                <h3 className="vertical-timeline-element-title">{item.title}</h3>
-                <h4 className="vertical-timeline-element-subtitle">{item.name}</h4>
-                <p className="vertical-timeline-element-tech">🔧 {item.techStack}</p>
-                <p>{item.summaryPoints}</p>
-              </div>
-            ) : (
-              <div style={{ color: 'black' }}>
-                <h3 className="vertical-timeline-element-title">{item.name}</h3>
-                <h4 className="vertical-timeline-element-subtitle">{item.title}</h4>
-                <p>{item.summaryPoints}</p>
-              </div>
-            )}
+            <h3 className="vertical-timeline-element-title">{item.title}</h3>
+            <h4 className="vertical-timeline-element-subtitle">{item.company}</h4>
+            <p>{item.description}</p>
           </VerticalTimelineElement>
         ))}
         <VerticalTimelineElement
@@ -76,7 +115,7 @@ const WorkExperience: React.FC = () => {
           icon={<StarIcon />}
         />
       </VerticalTimeline>
-    </>
+    </div>
   );
 };
 
