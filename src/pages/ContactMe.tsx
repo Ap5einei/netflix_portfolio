@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ContactMe.css';
 import profilePic from '../images/Benjamin Portfolio.jpg';
 import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
-import { ContactMe as IContactMe } from '../types';
-import { getContactMe } from '../queries/getContactMe';
 
 const ContactMe: React.FC = () => {
-
-  const [userData, setUserData] = useState<IContactMe>()
-
-  useEffect(() => {
-    async function fetchUserData() {
-      const data = await getContactMe();
-      setUserData(data);
-    }
-
-    fetchUserData();
-  }, []);
-
-  if (!userData) return <div>Loading...</div>;
+  // Staattiset tiedot
+  const userData = {
+    name: "Benjamin Masena",
+    title: "Software Developer & Game Designer",
+    summary: "Passionate about creating innovative solutions and immersive experiences through technology.",
+    companyUniversity: "Helsinki XR Center | Metropolia Ammattikorkeakoulu",
+    linkedinLink: "https://www.linkedin.com/in/benjamin-masena-151090247/",
+    email: "benjamin.masena@gmail.com",
+    phoneNumber: "+358 451 209 53",
+  };
 
   return (
     <div className="contact-container">
+      {/* LinkedIn Badge */}
       <div className="linkedin-badge-custom">
         <img src={profilePic} alt="Benjamin Masena" className="badge-avatar" />
         <div className="badge-content">
-          <h3 className="badge-name">{userData?.name}</h3>
+          <h3 className="badge-name">{userData.name}</h3>
           <p className="badge-title">{userData.title}</p>
-          <p className="badge-description">
-            {userData.summary}
-          </p>
+          <p className="badge-description">{userData.summary}</p>
           <p className="badge-company">{userData.companyUniversity}</p>
           <a
             href={userData.linkedinLink}
@@ -41,22 +35,31 @@ const ContactMe: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* Contact Header */}
       <div className="contact-header">
         <p>I'm always up for a chat or a coffee! Feel free to reach out.</p>
       </div>
+
+      {/* Contact Details */}
       <div className="contact-details">
+        {/* Email */}
         <div className="contact-item">
           <FaEnvelope className="contact-icon" />
           <a href={`mailto:${userData.email}`} className="contact-link">
             {userData.email}
           </a>
         </div>
+
+        {/* Phone */}
         <div className="contact-item">
           <FaPhoneAlt className="contact-icon" />
           <a href={`tel:${userData.phoneNumber}`} className="contact-link">
             {userData.phoneNumber}
           </a>
         </div>
+
+        {/* Fun Section */}
         <div className="contact-fun">
           <p>Or catch up over a coffee ☕</p>
           <FaCoffee className="coffee-icon" />

@@ -1,9 +1,7 @@
 .skills-container {
-  padding: 40px;
-  text-align: center;
-  color: #fff;
-  max-width: 1000px;
-  margin: auto;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .skills-title {
@@ -14,9 +12,44 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: #f1dede;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.skill-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+}
+
+.skill-level {
+  font-size: 0.8rem;
+  color: #e7cfcf85;
+  margin-top: 0.3rem;
 }
 
 .skill-card {
@@ -41,11 +74,6 @@
   margin-bottom: 10px;
 }
 
-.skill-name {
-  display: flex;
-  justify-content: center;
-}
-
 .letter {
   display: inline-block;
   opacity: 0;
@@ -65,10 +93,9 @@
   color: #999;
 }
 
-
 .skills-title {
   font-size: 2.5rem;
-  color: #da8185; /* Netflix red */
+  color: #5a0c10; /* Netflix red */
   margin-bottom: 30px;
   opacity: 0;
   transform: translateY(20px);
@@ -78,9 +105,9 @@
 /* Category Animation */
 .category-title {
   font-size: 1.8rem;
-  color: #e6e6e6;
+  color:rgba(230, 230, 230, 0.4);
   margin: 30px 0 20px;
-  border-bottom: 2px solid #e50914;
+  border-bottom: 2px solidrgba(229, 9, 20, 0.55);
   padding-bottom: 5px;
   display: inline-block;
   opacity: 0;
